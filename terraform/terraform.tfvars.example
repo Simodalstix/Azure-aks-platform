@@ -1,0 +1,32 @@
+resource_group_name = "rg-aks-gitops-platform"
+location           = "East US"
+cluster_name       = "aks-gitops-platform"
+dns_prefix         = "aks-gitops"
+
+enable_aad_integration   = true
+enable_workload_identity = true
+enable_key_vault_csi     = true
+
+gitops_tool  = "argocd"
+git_repo_url = "https://github.com/your-org/gitops-config"
+
+enable_ingress_nginx = true
+enable_cert_manager  = true
+enable_external_dns  = true
+dns_zone_name        = "example.com"
+dns_zone_resource_group = "rg-dns"
+
+teams = [
+  {
+    name      = "frontend"
+    namespace = "frontend"
+    admins    = ["user1@company.com"]
+    members   = ["user2@company.com", "user3@company.com"]
+  },
+  {
+    name      = "backend"
+    namespace = "backend"
+    admins    = ["user4@company.com"]
+    members   = ["user5@company.com"]
+  }
+]
