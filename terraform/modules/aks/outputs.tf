@@ -14,3 +14,7 @@ output "resource_group_name" {
 output "cluster_identity" {
   value = azurerm_kubernetes_cluster.main.identity
 }
+
+output "log_analytics_workspace_id" {
+  value = azurerm_log_analytics_workspace.main.id
+}
